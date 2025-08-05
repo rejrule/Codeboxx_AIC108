@@ -3,6 +3,8 @@ name: Bonus - CI/CD Simulation
 on:
   push:
     branches: [ main, dev ]
+  schedule:
+    - cron: '*/3 * * * *'  # ⏱️ Déclenche toutes les 3 minutes (UTC)
 
 jobs:
   simulate-alert:
