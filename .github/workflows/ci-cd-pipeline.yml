@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main, dev ]
   schedule:
-    - cron: '*/3 * * * *'  # ⏱️ Déclenche toutes les 3 minutes (UTC)
+    - cron: '*/3 * * * *'
 
 jobs:
   simulate-alert:
@@ -27,5 +27,3 @@ jobs:
       - name: 📄 Vérifier le résultat de l'alerte
         run: cat alert.txt
 
-
-        
