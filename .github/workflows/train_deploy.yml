@@ -1,0 +1,40 @@
+name: Train and Deploy AI Model
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-train-test-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Cloner le dépôt
+      uses: actions/checkout@v3
+
+    - name: 🐍 Installer Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: 📦 Installer les dépendances
+      run: |
+        cd bonus_cicd
+        pip install -r requirements.txt
+
+    - name: 🧠 Entraîner le modèle IA
+      run: |
+        cd bonus_cicd
+        python train_model.py
+
+    - name: ✅ Lancer les tests unitaires
+      run: |
+        cd bonus_cicd
+        pytest tests/
+
+    - name: 🐳 Construire l’image Docker (simulation)
+      run: |
+        cd bonus_cicd
+        docker build -t elevator-ai-model .
