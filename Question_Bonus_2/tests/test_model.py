@@ -12,3 +12,4 @@ def test_model_can_predict():
     sample = np.array([[5.1, 3.5, 1.4, 0.2]])  # typical Iris sample
     prediction = model.predict(sample)
     assert prediction.shape == (1,), "Model did not return a single prediction."
+
