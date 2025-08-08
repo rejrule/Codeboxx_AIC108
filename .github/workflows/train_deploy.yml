@@ -34,3 +34,5 @@ jobs:
     - name: 🐳 Build Docker image (simulate)
       working-directory: Question_Bonus_2
       run: docker build -t elevator-ai-model .
+
+      
